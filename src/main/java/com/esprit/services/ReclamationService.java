@@ -1,29 +1,31 @@
 package com.esprit.services;
 
 import com.esprit.models.Reclamation;
-import com.esprit.models.Status;
 import com.esprit.utils.DataSource;
 
 import java.sql.*;
 import java.util.*;
 public class ReclamationService {
 
-    private Connection connection;
+    private  Connection connection;
 
-    public ReclamationService() {
+    public  ReclamationService() {
         connection = DataSource.getInstance().getConnection();
     }
 
     public void ajouter(Reclamation reclamation) {
         String req = "INSERT into reclamation(" +
                         "uid, " +
+                        "date_creation, " +
                         "sujet," +
                         "description," +
                         "priorite," +
                         "role) " +
                         "values ('" +
                             reclamation.getUid() + "', '" +
+                            reclamation.getDate_creation() + "', '" +
                             reclamation.getSujet()+ "', '" +
+                            reclamation.getDescription()+ "', '" +
                             reclamation.getPriorité()+ "', '" +
                             reclamation.getResponsablle() + "');";
         try {
@@ -69,12 +71,19 @@ public class ReclamationService {
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {
                 entities.add(new Reclamation(rs.getInt("id_reclamation"), rs.getInt("uid"), rs.getString("date_creation") , rs.getString("sujet") , rs.getString ("description"), rs.getString(
-                "status"), rs.getInt("priorité") , rs.getString("role") ));
+                "status"), rs.getInt("priorite") , rs.getString("role") ));
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
 
         return entities;
+    }
+
+    public ResultSet afficher2() throws SQLException  {
+        Statement st = connection.createStatement();
+        ResultSet rs = st.executeQuery("SELECT * from reclamation");
+
+        return rs;
     }
 }

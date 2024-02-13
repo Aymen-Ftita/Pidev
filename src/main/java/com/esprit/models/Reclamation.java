@@ -24,7 +24,7 @@ public class Reclamation {
 
     public Reclamation(int uid, String date_creation, String sujet, String description, String status, int priorité, String responsablle) {
         this.uid = uid;
-        this.date_creation = date_creation;
+        this.date_creation = "01/01/2024";
         this.sujet = sujet;
         this.description = description;
         this.status = status;

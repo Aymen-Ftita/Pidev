@@ -1,18 +1,23 @@
 package com.esprit.tests;
 
-import com.esprit.models.entity;
+import com.esprit.models.Reclamation;
 //import com.esprit.services.EntityService;
 import com.esprit.services.EntityService2;
+import com.esprit.services.ReclamationService;
+
+import java.sql.SQLException;
 
 public class MainProg {
 
-    public static void main(String[] args) {
-        //EntityService e = new EntityService();
-//        ps.ajouter(new Personne("Ahmed", "Med"));
-//        ps.supprimer(new Personne(3, "Ahmed", "Med"));
-//        ps.modifier(new Personne(1, "Emma", "Zouaoui"));
-//        System.out.println(ps.afficher());
-        EntityService2 e2 = new EntityService2();
-        e2.ajouter(new entity("Fedi2", "Naoufel"));
+    public static void main(String[] args) throws SQLException {
+//
+        ReclamationService rs = new ReclamationService();
+        //Reclamation r = new Reclamation(1,"01/01/2024","testSujet","testDescription","testStatut",1,"testResponsable");
+        //Reclamation r = new Reclamation(2,"01/01/2024","testSujet2","testDescription2","testStatut2",1,"testResponsable2");
+        //rs.ajouter(r);
+
+        rs.afficher2();
+        System.out.println("*******************************");
+        rs.afficher();
     }
 }
