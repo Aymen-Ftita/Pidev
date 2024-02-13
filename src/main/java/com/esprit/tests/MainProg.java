@@ -16,8 +16,7 @@ public class MainProg {
         //Reclamation r = new Reclamation(2,"01/01/2024","testSujet2","testDescription2","testStatut2",1,"testResponsable2");
         //rs.ajouter(r);
 
-        rs.afficher2();
-        System.out.println("*******************************");
+
         rs.afficher();
     }
 }
