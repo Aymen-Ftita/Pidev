@@ -19,6 +19,7 @@ public class ReclamationService {
                         "date_creation, " +
                         "sujet," +
                         "description," +
+                        "status," +
                         "priorite," +
                         "role) " +
                         "values ('" +
@@ -26,6 +27,7 @@ public class ReclamationService {
                             reclamation.getDate_creation() + "', '" +
                             reclamation.getSujet()+ "', '" +
                             reclamation.getDescription()+ "', '" +
+                            reclamation.getUid() + "', '" +
                             reclamation.getPriorité()+ "', '" +
                             reclamation.getResponsablle() + "');";
         try {
@@ -62,7 +64,7 @@ public class ReclamationService {
     }
 
 
-    public List<Reclamation> afficher() {
+    public void afficher() {
         List<Reclamation> entities = new ArrayList<>();
 
         String req = "SELECT * from reclamation";
@@ -72,12 +74,13 @@ public class ReclamationService {
             while (rs.next()) {
                 entities.add(new Reclamation(rs.getInt("id_reclamation"), rs.getInt("uid"), rs.getString("date_creation") , rs.getString("sujet") , rs.getString ("description"), rs.getString(
                 "status"), rs.getInt("priorite") , rs.getString("role") ));
+
             }
+            System.out.println(entities.toString());
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
 
-        return entities;
     }
 
     public ResultSet afficher2() throws SQLException  {

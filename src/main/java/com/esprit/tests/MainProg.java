@@ -1,5 +1,7 @@
 package com.esprit.tests;
 
+import com.esprit.models.Groupe;
+import com.esprit.models.GroupeService;
 import com.esprit.models.Reclamation;
 //import com.esprit.services.EntityService;
 import com.esprit.services.EntityService2;
@@ -12,11 +14,23 @@ public class MainProg {
     public static void main(String[] args) throws SQLException {
 //
         ReclamationService rs = new ReclamationService();
-        //Reclamation r = new Reclamation(1,"01/01/2024","testSujet","testDescription","testStatut",1,"testResponsable");
-        //Reclamation r = new Reclamation(2,"01/01/2024","testSujet2","testDescription2","testStatut2",1,"testResponsable2");
-        //rs.ajouter(r);
+
+        //test de reclamation valid
+        /*Reclamation r = new Reclamation(1,"01/01/2024","testSujet1","testDescription1","testStatut1",1,"testResponsable1");
+        rs.ajouter(r);*/
+
+        GroupeService gs = new GroupeService();
+
+        Groupe g3 = new Groupe(1,1,"test","descriptiontest");
+
+        Groupe g2 = new Groupe(0,1,"test Title","test Description");
+
+        gs.ajouter(g3);
+
+        gs.afficher();
 
 
-        rs.afficher();
+
+
     }
 }
