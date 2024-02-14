@@ -17,4 +17,8 @@
 
 
 ## Remarque :
+<<<<<<< HEAD
  # elli ma3andouch el git installé processus o5ra lezem tsir abda e5dem taw nrak7ouh ba3d.
+=======
+ # elli ma3andouch el git installé processus o5ra lezem tsir abda e5dem taw nrak7ouh ba3d...()
+>>>>>>> 29be3291b47e46ea72023b5b6fe6478430ee973b
